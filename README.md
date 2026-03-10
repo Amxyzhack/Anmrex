@@ -1,7 +1,7 @@
 # 🔐 Anmrex Exchange — Regulated Cryptocurrency Trading Infrastructure
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/anmrex/anmrex/main/docs/assets/anmrex-logo.png" alt="Anmrex Logo" width="480">
+    <img src="https://github.com/Amxyzhack/Anmrex/blob/main/Anmrex%20Logo.png" alt="Anmrex Logo" width="480">
 </p>
 
 <p align="center">
