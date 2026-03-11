@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anmrex Security — How Anmrex Protects Your Funds</title>
+  <meta name="description" content="Is Anmrex safe? Explore the full Anmrex security architecture: 90%+ cold wallet storage, MPC, multi-signature, zero-trust, AI risk engine, and HSM key management." />
+  <meta name="keywords" content="Anmrex security, is Anmrex safe, Anmrex wallet, Anmrex cold wallet, Anmrex fund protection, Anmrex MPC" />
+  <link rel="canonical" href="https://anmrex.github.io/security" />
+  <meta property="og:title" content="Anmrex Security — Is Anmrex Safe?" />
+  <meta property="og:description" content="Deep dive into Anmrex's security architecture: cold wallets, MPC, zero-trust, and AI-driven risk control." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://anmrex.github.io/security" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #0b0c14;
+      --bg3:       #13142280;
+      --border:    rgba(140,100,255,0.15);
+      --border-h:  rgba(167,139,250,0.4);
+      --purple-lo: #a78bfa;
+      --purple-hi: #7c3aed;
+      --purple-mid:#9333ea;
+      --accent:    #c4b5fd;
+      --text:      #eae8f2;
+      --muted:     #8a87a6;
+      --green:     #34d399;
+      --teal:      #2dd4bf;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'DM Sans', sans-serif; font-weight: 400;
+      line-height: 1.7; overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .glow { position: fixed; border-radius: 50%; filter: blur(130px); pointer-events: none; z-index: 0; }
+    .glow-1 { width: 500px; height: 500px; background: rgba(45,212,191,0.08); top: -100px; right: -100px; }
+    .glow-2 { width: 400px; height: 400px; background: rgba(124,58,237,0.1); bottom: 20%; left: -80px; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(11,12,20,0.8); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); padding: 0;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem;
+      background: linear-gradient(135deg, var(--purple-lo), var(--purple-hi));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
+    .nav-links a {
+      font-size: 0.84rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; padding: 6px 12px; border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(167,139,250,0.08); }
+    .nav-links .nav-cta {
+      background: linear-gradient(135deg, var(--purple-hi), var(--purple-mid));
+      color: #fff !important; padding: 7px 18px; border-radius: 8px; font-weight: 600;
+    }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+    .section-pad { padding: 88px 0; }
+    .section-pad + .section-pad { border-top: 1px solid var(--border); }
+
+    .section-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+    }
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+      font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 18px;
+    }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 640px; margin-bottom: 48px; }
+
+    /* HERO */
+    .hero {
+      padding: 100px 0 72px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(45,212,191,0.08); border: 1px solid rgba(45,212,191,0.2);
+      border-radius: 100px; padding: 6px 16px; margin-bottom: 28px;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--teal);
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(110deg, var(--teal), var(--purple-lo));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 600px; font-weight: 300; margin-bottom: 40px; }
+
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 20px;
+    }
+    .h-stat {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 18px 24px; backdrop-filter: blur(8px);
+    }
+    .h-stat .n {
+      font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--teal), var(--purple-lo));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .h-stat .l { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+    /* LAYER DIAGRAM */
+    .layers { display: flex; flex-direction: column; gap: 12px; }
+    .layer {
+      display: flex; align-items: center; gap: 20px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px 28px;
+      backdrop-filter: blur(8px);
+      transition: border-color 0.3s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .layer::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--teal), var(--purple-lo));
+    }
+    .layer:hover { border-color: var(--border-h); transform: translateX(4px); }
+    .layer-num {
+      font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 800;
+      letter-spacing: 0.1em; color: var(--teal); min-width: 28px;
+    }
+    .layer-icon { font-size: 1.4rem; min-width: 32px; text-align: center; }
+    .layer h3 { font-family: 'Syne', sans-serif; font-size: 0.98rem; font-weight: 700; margin-bottom: 4px; }
+    .layer p  { font-size: 0.86rem; color: var(--muted); line-height: 1.55; }
+
+    /* COLD WALLET VISUAL */
+    .wallet-visual {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 20px; padding: 40px; backdrop-filter: blur(10px);
+    }
+    .wallet-bar-wrap { margin: 32px 0 16px; }
+    .wallet-bar-label {
+      display: flex; justify-content: space-between;
+      font-size: 0.82rem; color: var(--muted); margin-bottom: 10px;
+    }
+    .wallet-bar-track {
+      height: 20px; background: rgba(255,255,255,0.05);
+      border-radius: 100px; overflow: hidden;
+    }
+    .wallet-bar-fill {
+      height: 100%; border-radius: 100px;
+      background: linear-gradient(90deg, var(--teal), var(--purple-lo));
+      width: 0%; transition: width 1.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .wallet-bar-fill.animated { width: 92%; }
+    .wallet-legend {
+      display: flex; gap: 24px; flex-wrap: wrap; margin-top: 16px;
+    }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--muted); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .legend-dot.cold { background: linear-gradient(135deg, var(--teal), var(--purple-lo)); }
+    .legend-dot.hot  { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); }
+
+    /* FEATURE GRID */
+    .feat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px;
+    }
+    .feat-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 16px; padding: 30px;
+      backdrop-filter: blur(8px);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .feat-card:hover { border-color: rgba(45,212,191,0.35); transform: translateY(-3px); }
+    .feat-icon {
+      width: 46px; height: 46px; border-radius: 11px;
+      background: rgba(45,212,191,0.1); border: 1px solid rgba(45,212,191,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; margin-bottom: 18px;
+    }
+    .feat-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .feat-card p  { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
+
+    /* CERTIFICATIONS */
+    .cert-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;
+    }
+    .cert-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 14px; padding: 26px;
+      text-align: center; backdrop-filter: blur(8px);
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .cert-card:hover { border-color: rgba(52,211,153,0.4); transform: translateY(-2px); }
+    .cert-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(52,211,153,0.1); border: 2px solid rgba(52,211,153,0.25);
+      font-size: 1.4rem; margin-bottom: 14px;
+    }
+    .cert-card h4 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+    .cert-card p  { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .cert-year {
+      display: inline-block; margin-top: 10px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      color: var(--green); background: rgba(52,211,153,0.08);
+      border: 1px solid rgba(52,211,153,0.2);
+      border-radius: 100px; padding: 3px 10px;
+    }
+
+    /* EMERGENCY */
+    .emergency-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;
+    }
+    .em-item {
+      display: flex; gap: 14px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px;
+      backdrop-filter: blur(8px);
+    }
+    .em-num {
+      font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800;
+      color: rgba(167,139,250,0.25); line-height: 1; flex-shrink: 0; padding-top: 2px;
+    }
+    .em-item h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 5px; }
+    .em-item p  { font-size: 0.84rem; color: var(--muted); line-height: 1.55; }
+
+    /* FINAL CTA */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(45,212,191,0.08), rgba(124,58,237,0.1));
+      border: 1px solid rgba(167,139,250,0.2);
+      border-radius: 20px; padding: 64px 48px; text-align: center;
+      margin-top: 88px;
+    }
+    .cta-box h2 { margin-bottom: 14px; }
+    .cta-box p  { color: var(--muted); max-width: 500px; margin: 0 auto 32px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--purple-hi), var(--purple-mid));
+      color: #fff; font-weight: 600; font-size: 0.95rem;
+      padding: 13px 28px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 0 28px rgba(124,58,237,0.3);
+      transition: opacity 0.2s, transform 0.2s; margin: 6px;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(167,139,250,0.08); border: 1px solid var(--border);
+      color: var(--accent); font-weight: 500; font-size: 0.95rem;
+      padding: 13px 28px; border-radius: 10px; text-decoration: none;
+      transition: border-color 0.2s, background 0.2s; margin: 6px;
+    }
+    .btn-secondary:hover { border-color: var(--border-h); background: rgba(167,139,250,0.12); }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 44px 0;
+      position: relative; z-index: 2;
+    }
+    .footer-inner {
+      display: flex; flex-wrap: wrap; justify-content: space-between;
+      align-items: center; gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+      background: linear-gradient(135deg, var(--purple-lo), var(--purple-hi));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.78rem; color: var(--muted); width: 100%; margin-top: 14px; }
+
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.in { opacity: 1; transform: translateY(0); }
+    .s1 { transition-delay: 0.06s; }
+    .s2 { transition-delay: 0.13s; }
+    .s3 { transition-delay: 0.2s; }
+
+    @media (max-width: 640px) {
+      .hero { padding: 80px 0 56px; }
+      .cta-box { padding: 48px 24px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Anmrex Security Architecture",
+    "description": "Detailed documentation of Anmrex Exchange security systems including cold wallet storage, MPC, multi-signature, zero-trust architecture, and AI risk control.",
+    "url": "https://anmrex.github.io/security",
+    "isPartOf": { "@type": "WebSite", "name": "Anmrex", "url": "https://anmrex.github.io" }
+  }
+  </script>
+</head>
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="https://anmrex.github.io/">Anmrex</a>
+      <ul class="nav-links">
+        <li><a href="https://anmrex.github.io/review">Review</a></li>
+        <li><a href="https://anmrex.github.io/security" class="active">Security</a></li>
+        <li><a href="https://anmrex.github.io/compliance">Compliance</a></li>
+        <li><a href="https://anmrex.github.io/about">About</a></li>
+        <li><a href="https://anmrex.github.io/faq">FAQ</a></li>
+        <li><a href="https://www.anmrex.com" class="nav-cta">Visit Exchange ↗</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-kicker fade-up">🔒 Security Documentation</div>
+      <h1 class="fade-up s1">Is Anmrex Safe?<br><em>Here's the Full Answer.</em></h1>
+      <p class="hero-sub fade-up s2">
+        Anmrex security is built on multiple independent layers — from cold wallet custody to AI-driven risk monitoring. This page documents every mechanism in detail, so you don't have to take our word for it.
+      </p>
+      <div class="hero-stats fade-up s3">
+        <div class="h-stat">
+          <div class="n">90%+</div>
+          <div class="l">Cold Wallet Storage</div>
+        </div>
+        <div class="h-stat">
+          <div class="n">MPC</div>
+          <div class="l">Multi-Party Computation</div>
+        </div>
+        <div class="h-stat">
+          <div class="n">Zero-Trust</div>
+          <div class="l">Account Architecture</div>
+        </div>
+        <div class="h-stat">
+          <div class="n">24/7</div>
+          <div class="l">AI Risk Monitoring</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEFENSE LAYERS -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-label fade-up">Architecture Overview</div>
+      <h2 class="fade-up">A Multi-Layered Defense System</h2>
+      <p class="section-sub fade-up">Anmrex employs a defense-in-depth approach: no single layer is relied upon alone. Each layer independently limits risk, so that a failure in one does not compromise the whole.</p>
+      <div class="layers">
+        <div class="layer fade-up">
+          <div class="layer-num">L1</div>
+          <div class="layer-icon">🥶</div>
+          <div>
+            <h3>Cold Storage — Fund Custody Layer</h3>
+            <p>Over 90% of all user assets are held in air-gapped cold wallets, completely disconnected from the internet. Hot wallets retain only the minimum liquidity required for daily operations, dramatically reducing the external attack surface.</p>
+          </div>
+        </div>
+        <div class="layer fade-up s1">
+          <div class="layer-num">L2</div>
+          <div class="layer-icon">🔑</div>
+          <div>
+            <h3>MPC + Multi-Signature — Authorization Layer</h3>
+            <p>Every fund transfer requires joint authorization from multiple independent nodes via multi-party computation and multi-signature protocols. No single person or system can unilaterally move user funds — eliminating single-point key risk entirely.</p>
+          </div>
+        </div>
+        <div class="layer fade-up s2">
+          <div class="layer-num">L3</div>
+          <div class="layer-icon">🛡️</div>
+          <div>
+            <h3>HSM Key Sharding — Key Protection Layer</h3>
+            <p>Hardware Security Modules protect cryptographic keys throughout their full lifecycle: generation, storage, and usage. Key sharding ensures that no complete private key ever exists in a single location or system.</p>
+          </div>
+        </div>
+        <div class="layer fade-up">
+          <div class="layer-num">L4</div>
+          <div class="layer-icon">🚫</div>
+          <div>
+            <h3>Zero-Trust Architecture — Account Access Layer</h3>
+            <p>Every access request is treated as potentially hostile and requires real-time verification and dynamic authorization. Multi-factor authentication combines dynamic OTPs, device fingerprinting, and biometric identification to ensure only legitimate users can access accounts.</p>
+          </div>
+        </div>
+        <div class="layer fade-up s1">
+          <div class="layer-num">L5</div>
+          <div class="layer-icon">🤖</div>
+          <div>
+            <h3>AI Risk Engine — Transaction Monitoring Layer</h3>
+            <p>Machine learning models trained on large-scale transaction data monitor all platform activity in real time. The system identifies anomalous patterns, potential money laundering behavior, and market manipulation — triggering automated responses including freezing, isolation, or account limiting, with simultaneous escalation to manual review.</p>
+          </div>
+        </div>
+        <div class="layer fade-up s2">
+          <div class="layer-num">L6</div>
+          <div class="layer-icon">⛓️</div>
+          <div>
+            <h3>On-Chain Compliance — Cross-Platform Risk Layer</h3>
+            <p>Powered by partnerships with Chainalysis and Elliptic, Anmrex continuously monitors the on-chain origin and destination of funds. Address tagging and fund flow analysis prevent cross-platform risk proliferation and identify high-risk wallet interactions before they affect the platform.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLD WALLET VISUAL -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-label fade-up">Fund Custody</div>
+      <h2 class="fade-up">Where User Funds Are Held</h2>
+      <p class="section-sub fade-up">Anmrex maintains one of the highest cold storage ratios in the industry, consistently keeping over 90% of assets in offline, air-gapped custody.</p>
+      <div class="wallet-visual fade-up">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div style="font-family:'Syne',sans-serif; font-size:0.8rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:8px;">Storage Breakdown</div>
+            <div style="font-family:'Syne',sans-serif; font-size:3rem; font-weight:800; background:linear-gradient(135deg,var(--teal),var(--purple-lo)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1;">90%+</div>
+            <div style="font-size:0.85rem; color:var(--muted);">in cold wallet storage</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:0.82rem; color:var(--muted);">Industry average: 70–80%</div>
+            <div style="font-size:0.78rem; color:rgba(167,139,250,0.5); margin-top:4px;">Anmrex exceeds the benchmark</div>
+          </div>
+        </div>
+        <div class="wallet-bar-wrap">
+          <div class="wallet-bar-label">
+            <span>Cold Storage (90%+)</span>
+            <span>Hot Wallet (&lt;10%)</span>
+          </div>
+          <div class="wallet-bar-track">
+            <div class="wallet-bar-fill" id="walletBar"></div>
+          </div>
+        </div>
+        <div class="wallet-legend">
+          <div class="legend-item"><div class="legend-dot cold"></div> Cold wallet — air-gapped, offline, MPC-protected</div>
+          <div class="legend-item"><div class="legend-dot hot"></div> Hot wallet — daily operational liquidity only</div>
+        </div>
+        <div style="margin-top:28px; padding-top:24px; border-top:1px solid var(--border); display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;">
+          <div>
+            <div style="font-size:0.78rem; color:var(--muted); margin-bottom:4px;">All large transfers require</div>
+            <div style="font-size:0.9rem; font-weight:600; color:var(--text);">Multi-signature + multi-level approval</div>
+          </div>
+          <div>
+            <div style="font-size:0.78rem; color:var(--muted); margin-bottom:4px;">All operations recorded</div>
+            <div style="font-size:0.9rem; font-weight:600; color:var(--text);">On-chain and off-chain simultaneously</div>
+          </div>
+          <div>
+            <div style="font-size:0.78rem; color:var(--muted); margin-bottom:4px;">Cold wallet activation</div>
+            <div style="font-size:0.9rem; font-weight:600; color:var(--text);">Institutionalized emergency procedure</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCOUNT SECURITY -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-label fade-up">Account Protection</div>
+      <h2 class="fade-up">Zero-Trust Account Security</h2>
+      <p class="section-sub fade-up">Anmrex treats every access request as potentially hostile — verification is continuous, not one-time.</p>
+      <div class="feat-grid">
+        <div class="feat-card fade-up">
+          <div class="feat-icon">🔐</div>
+          <h3>Multi-Factor Authentication</h3>
+          <p>Three independent verification factors: dynamic one-time passwords, device fingerprinting, and biometric identification. All three must align for account access to be granted.</p>
+        </div>
+        <div class="feat-card fade-up s1">
+          <div class="feat-icon">📱</div>
+          <h3>Device Fingerprinting</h3>
+          <p>Every device used to access the platform is registered and continuously verified. Unrecognized device access triggers immediate secondary authentication and alert escalation.</p>
+        </div>
+        <div class="feat-card fade-up s2">
+          <div class="feat-icon">⚡</div>
+          <h3>Anomaly Interception</h3>
+          <p>The anomaly detection engine monitors all account activity in real time. High-frequency requests, privilege escalation attempts, and unusual geographic access are intercepted automatically.</p>
+        </div>
+        <div class="feat-card fade-up">
+          <div class="feat-icon">✍️</div>
+          <h3>Critical Operation Verification</h3>
+          <p>Withdrawal requests, security setting changes, and API key management all require secondary verification — preventing unauthorized use even on a compromised session.</p>
+        </div>
+        <div class="feat-card fade-up s1">
+          <div class="feat-icon">🌐</div>
+          <h3>Dynamic Authorization</h3>
+          <p>Authorization is not static or session-based. Every sensitive operation triggers its own real-time authorization check, independent of prior session state.</p>
+        </div>
+        <div class="feat-card fade-up s2">
+          <div class="feat-icon">📋</div>
+          <h3>Full Audit Trail</h3>
+          <p>Every account action is logged with timestamp, device, and IP information. The audit trail is immutable and available for review in compliance-related investigations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-label fade-up">Verified Standards</div>
+      <h2 class="fade-up">Security Certifications</h2>
+      <p class="section-sub fade-up">Anmrex's security infrastructure is independently validated against internationally recognized standards — not self-assessed.</p>
+      <div class="cert-grid">
+        <div class="cert-card fade-up">
+          <div class="cert-badge">🏅</div>
+          <h4>ISO/IEC 27001</h4>
+          <p>Information Security Management System certification. Covers the design, implementation, and ongoing monitoring of Anmrex's entire security framework.</p>
+          <div class="cert-year">Achieved Dec 2024</div>
+        </div>
+        <div class="cert-card fade-up s1">
+          <div class="cert-badge">📊</div>
+          <h4>SOC 2 Type II</h4>
+          <p>Service Organization Controls certification. Independently verifies that internal systems and processes meet the required standards for security and availability.</p>
+          <div class="cert-year">Achieved Dec 2024</div>
+        </div>
+        <div class="cert-card fade-up s2">
+          <div class="cert-badge">🔍</div>
+          <h4>Trail of Bits Audit</h4>
+          <p>Security audit and penetration testing partnership with Trail of Bits, one of the most respected blockchain security firms in the industry.</p>
+          <div class="cert-year">Since Dec 2020</div>
+        </div>
+        <div class="cert-card fade-up">
+          <div class="cert-badge">⛓️</div>
+          <h4>Chainalysis Integration</h4>
+          <p>Industry-leading on-chain analytics for AML compliance monitoring. All fund flows are continuously screened against known high-risk addresses and sanctioned wallets.</p>
+          <div class="cert-year">Since Nov 2022</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY RESPONSE -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-label fade-up">Business Continuity</div>
+      <h2 class="fade-up">What Happens in an Emergency?</h2>
+      <p class="section-sub fade-up">Anmrex maintains comprehensive business continuity and emergency response plans — tested at least annually.</p>
+      <div class="emergency-grid">
+        <div class="em-item fade-up">
+          <div class="em-num">01</div>
+          <div>
+            <h4>Multi-Region Disaster Recovery</h4>
+            <p>Disaster recovery systems are deployed across multiple global locations. Hot and cold backup mechanisms ensure critical services remain operational during single-point failures or large-scale attacks.</p>
+          </div>
+        </div>
+        <div class="em-item fade-up s1">
+          <div class="em-num">02</div>
+          <div>
+            <h4>Cold Wallet Emergency Protocol</h4>
+            <p>Cold wallet activation follows strict institutionalized procedures, enabling rapid fund migration in the shortest possible time when necessary, with full chain-of-custody documentation.</p>
+          </div>
+        </div>
+        <div class="em-item fade-up s2">
+          <div class="em-num">03</div>
+          <div>
+            <h4>Annual Full-Scale Drills</h4>
+            <p>At minimum annually, Anmrex conducts comprehensive drills: disaster recovery switching tests, penetration attack simulations, and risk control system stress tests — with documented results.</p>
+          </div>
+        </div>
+        <div class="em-item fade-up">
+          <div class="em-num">04</div>
+          <div>
+            <h4>Crisis Communication Protocol</h4>
+            <p>A pre-established crisis communication framework ensures rapid, accurate information delivery to users, partners, and regulators during emergencies — preventing secondary risk from misinformation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="cta-box fade-up">
+      <div class="section-label" style="color:var(--teal);margin-bottom:14px;">Conclusion</div>
+      <h2>Anmrex Is Built to Be Safe</h2>
+      <p>Every layer of Anmrex's security architecture is independently verified, continuously monitored, and regularly tested. This is what institutional-grade security looks like.</p>
+      <a href="https://www.anmrex.com" class="btn-primary">Visit Anmrex Exchange ↗</a>
+      <a href="https://anmrex.github.io/compliance" class="btn-secondary">View Compliance Credentials →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="https://anmrex.github.io/" class="footer-logo">Anmrex</a>
+        <div class="footer-links">
+          <a href="https://anmrex.github.io/">Home</a>
+          <a href="https://anmrex.github.io/review">Review</a>
+          <a href="https://anmrex.github.io/compliance">Compliance</a>
+          <a href="https://anmrex.github.io/about">About</a>
+          <a href="https://anmrex.github.io/faq">FAQ</a>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.facebook.com/Anmrex.Official" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/anmrex" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@Anmrex-Official" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://x.com/Anmrex_" target="_blank" rel="noopener">X</a>
+        </div>
+        <p class="footer-copy">© 2026 Anmrex Exchange. Security documentation for informational purposes. For trading, visit <a href="https://www.anmrex.com" style="color:var(--muted);">www.anmrex.com</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+    // Wallet bar animation
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { document.getElementById('walletBar').classList.add('animated'); barObserver.unobserve(e.target); } });
+    }, { threshold: 0.3 });
+    const bar = document.getElementById('walletBar');
+    if (bar) barObserver.observe(bar.closest('.wallet-visual'));
+  </script>
+</body>
+</html>

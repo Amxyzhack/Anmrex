@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Anmrex — Team, Mission & Platform History</title>
+  <meta name="description" content="Who is behind Anmrex? Meet the leadership team, learn about Anmrex's founding story, core philosophy, and the milestones that built a compliance-first crypto exchange." />
+  <meta name="keywords" content="Anmrex team, who founded Anmrex, Anmrex history, Anmrex about, Anmrex governance" />
+  <link rel="canonical" href="https://anmrex.github.io/about" />
+  <meta property="og:title" content="About Anmrex — Team & Mission" />
+  <meta property="og:description" content="Meet the team behind Anmrex Exchange. Founded in 2020 with a compliance-first mission." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://anmrex.github.io/about" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #0b0c14;
+      --bg3:       #13142280;
+      --border:    rgba(140,100,255,0.15);
+      --border-h:  rgba(167,139,250,0.4);
+      --purple-lo: #a78bfa;
+      --purple-hi: #7c3aed;
+      --purple-mid:#9333ea;
+      --accent:    #c4b5fd;
+      --text:      #eae8f2;
+      --muted:     #8a87a6;
+      --green:     #34d399;
+      --rose:      #f472b6;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'DM Sans', sans-serif; font-weight: 400;
+      line-height: 1.7; overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .glow { position: fixed; border-radius: 50%; filter: blur(140px); pointer-events: none; z-index: 0; }
+    .glow-1 { width: 500px; height: 500px; background: rgba(244,114,182,0.06); top: -80px; left: -80px; }
+    .glow-2 { width: 400px; height: 400px; background: rgba(124,58,237,0.1); bottom: 20%; right: -80px; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(11,12,20,0.8); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem;
+      background: linear-gradient(135deg, var(--purple-lo), var(--purple-hi));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none;
+    }
+    .nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
+    .nav-links a {
+      font-size: 0.84rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; padding: 6px 12px; border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(167,139,250,0.08); }
+    .nav-links .nav-cta {
+      background: linear-gradient(135deg, var(--purple-hi), var(--purple-mid));
+      color: #fff !important; padding: 7px 18px; border-radius: 8px; font-weight: 600;
+    }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+    .section-pad { padding: 88px 0; }
+    .section-pad + .section-pad { border-top: 1px solid var(--border); }
+    .section-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--purple-lo); margin-bottom: 12px;
+    }
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+      font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 18px;
+    }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 640px; margin-bottom: 48px; }
+
+    /* HERO */
+    .hero { padding: 100px 0 72px; border-bottom: 1px solid var(--border); }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.2);
+      border-radius: 100px; padding: 6px 16px; margin-bottom: 28px;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(110deg, var(--purple-lo), var(--rose));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 620px; font-weight: 300; margin-bottom: 40px; }
+    .founding-block {
+      display: inline-flex; flex-wrap: wrap; gap: 24px;
+    }
+    .f-fact {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 16px 22px; backdrop-filter: blur(8px);
+    }
+    .f-fact .n {
+      font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--purple-lo), var(--rose));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .f-fact .l { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+    /* PHILOSOPHY */
+    .phil-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;
+    }
+    .phil-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 16px; padding: 30px; backdrop-filter: blur(8px);
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .phil-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--purple-hi), var(--rose));
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .phil-card:hover { border-color: var(--border-h); transform: translateY(-3px); }
+    .phil-card:hover::before { opacity: 1; }
+    .phil-num {
+      font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800;
+      color: rgba(167,139,250,0.12); line-height: 1; margin-bottom: 12px;
+    }
+    .phil-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .phil-card p  { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* TEAM */
+    .team-cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;
+    }
+    .team-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 20px; padding: 36px 32px; backdrop-filter: blur(10px);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .team-card:hover { border-color: var(--border-h); transform: translateY(-4px); }
+    .team-av {
+      width: 64px; height: 64px; border-radius: 16px;
+      background: linear-gradient(135deg, var(--purple-hi), var(--rose));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem; color: #fff;
+      margin-bottom: 20px;
+    }
+    .team-card h3 { font-family: 'Syne', sans-serif; font-size: 1.12rem; font-weight: 700; margin-bottom: 5px; }
+    .team-card .role {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--purple-lo); margin-bottom: 16px;
+    }
+    .team-card .bio { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    .team-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 0.74rem; font-weight: 500;
+      background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.15);
+      color: var(--accent); border-radius: 6px; padding: 3px 10px;
+    }
+
+    /* MISSION QUOTE */
+    .mission-block {
+      background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(244,114,182,0.06));
+      border: 1px solid rgba(167,139,250,0.22);
+      border-radius: 20px; padding: 52px 48px; text-align: center;
+    }
+    .mission-block blockquote {
+      font-family: 'Syne', sans-serif; font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+      font-weight: 700; line-height: 1.35; color: var(--text);
+      margin-bottom: 20px; letter-spacing: -0.01em;
+    }
+    .mission-block blockquote em {
+      font-style: normal;
+      background: linear-gradient(110deg, var(--purple-lo), var(--rose));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .mission-block cite { font-size: 0.82rem; color: var(--muted); font-style: normal; }
+
+    /* VISION */
+    .vision-cols {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;
+    }
+    .vision-item {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px; backdrop-filter: blur(8px);
+      transition: border-color 0.25s;
+    }
+    .vision-item:hover { border-color: var(--border-h); }
+    .vision-icon { font-size: 1.6rem; margin-bottom: 14px; }
+    .vision-item h4 { font-family: 'Syne', sans-serif; font-size: 0.98rem; font-weight: 700; margin-bottom: 8px; }
+    .vision-item p  { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* CTA */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(244,114,182,0.06));
+      border: 1px solid rgba(167,139,250,0.2);
+      border-radius: 20px; padding: 64px 48px; text-align: center; margin-top: 88px;
+    }
+    .cta-box h2 { margin-bottom: 14px; }
+    .cta-box p  { color: var(--muted); max-width: 520px; margin: 0 auto 32px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--purple-hi), var(--purple-mid));
+      color: #fff; font-weight: 600; font-size: 0.95rem;
+      padding: 13px 28px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 0 28px rgba(124,58,237,0.3);
+      transition: opacity 0.2s, transform 0.2s; margin: 6px;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(167,139,250,0.08); border: 1px solid var(--border);
+      color: var(--accent); font-weight: 500; font-size: 0.95rem;
+      padding: 13px 28px; border-radius: 10px; text-decoration: none;
+      transition: border-color 0.2s; margin: 6px;
+    }
+    .btn-secondary:hover { border-color: var(--border-h); }
+
+    footer { border-top: 1px solid var(--border); padding: 44px 0; position: relative; z-index: 2; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+    .footer-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+      background: linear-gradient(135deg, var(--purple-lo), var(--purple-hi));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none;
+    }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.78rem; color: var(--muted); width: 100%; margin-top: 14px; }
+
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.in { opacity: 1; transform: translateY(0); }
+    .s1 { transition-delay: 0.07s; } .s2 { transition-delay: 0.14s; } .s3 { transition-delay: 0.21s; }
+    @media (max-width: 640px) { .hero { padding: 80px 0 56px; } .cta-box { padding: 48px 24px; } .mission-block { padding: 36px 24px; } }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Anmrex Exchange",
+    "description": "The story, mission, and leadership team behind Anmrex Exchange — a compliance-first cryptocurrency trading platform founded in 2020.",
+    "url": "https://anmrex.github.io/about",
+    "isPartOf": { "@type": "WebSite", "name": "Anmrex", "url": "https://anmrex.github.io" }
+  }
+  </script>
+</head>
+<body>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="https://anmrex.github.io/">Anmrex</a>
+      <ul class="nav-links">
+        <li><a href="https://anmrex.github.io/review">Review</a></li>
+        <li><a href="https://anmrex.github.io/security">Security</a></li>
+        <li><a href="https://anmrex.github.io/compliance">Compliance</a></li>
+        <li><a href="https://anmrex.github.io/about" class="active">About</a></li>
+        <li><a href="https://anmrex.github.io/faq">FAQ</a></li>
+        <li><a href="https://www.anmrex.com" class="nav-cta">Visit Exchange ↗</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-kicker fade-up">🏛️ Platform Story</div>
+      <h1 class="fade-up s1">Built for the Long Term.<br><em>From Day One.</em></h1>
+      <p class="hero-sub fade-up s2">
+        Anmrex was founded in May 2020 with a clear conviction: that the cryptocurrency industry needed an exchange that treated compliance, security, and transparency as foundations — not afterthoughts. This is that exchange.
+      </p>
+      <div class="founding-block fade-up s3">
+        <div class="f-fact"><div class="n">2020</div><div class="l">Year Founded</div></div>
+        <div class="f-fact"><div class="n">5+</div><div class="l">Years Operating</div></div>
+        <div class="f-fact"><div class="n">3</div><div class="l">Core Principles</div></div>
+        <div class="f-fact"><div class="n">5</div><div class="l">Major Certifications</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-label fade-up">Core Philosophy</div>
+      <h2 class="fade-up">The Principles That Define Anmrex</h2>
+      <p class="section-sub fade-up">Three principles, set at founding, that have guided every architectural, regulatory, and product decision Anmrex has made.</p>
+      <div class="phil-grid">
+        <div class="phil-card fade-up">
+          <div class="phil-num">01</div>
+          <h3>Security First</h3>
+          <p>Transaction and asset security is the non-negotiable foundation of the platform. A multi-layered defense system, real-time anomaly detection, and automated risk response are not optional features — they are the baseline. No user should have to wonder whether their funds are safe.</p>
+        </div>
+        <div class="phil-card fade-up s1">
+          <div class="phil-num">02</div>
+          <h3>Compliance Driven</h3>
+          <p>Regulatory compliance is not a constraint to work around — it is a competitive advantage and a signal of institutional seriousness. Anmrex implemented KYC and AML from day one, pursued government licensing proactively, and treats every new regulatory development as an opportunity to strengthen trust.</p>
+        </div>
+        <div class="phil-card fade-up s2">
+          <div class="phil-num">03</div>
+          <h3>Transparent Governance</h3>
+          <p>The cryptocurrency industry has suffered from opacity. Anmrex took the opposite approach: independent audits, Proof-of-Reserves, structured governance committees, and public reporting are built into the operating model — not performed for appearances, but maintained as permanent institutional standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION QUOTE -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="mission-block fade-up">
+        <blockquote>
+          "Our mission is to become the most <em>trusted and institutionalized</em> cryptocurrency exchange globally — not the largest, not the fastest, but the one users and regulators can depend on unconditionally."
+        </blockquote>
+        <cite>— Anmrex Strategic Vision</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOVERNANCE STRUCTURE -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-label fade-up">Governance</div>
+      <h2 class="fade-up">How Anmrex Is Governed</h2>
+      <p class="section-sub fade-up">Anmrex operates under a formal multi-stakeholder governance model — designed for accountability, not appearances. Every key decision area has dedicated oversight with defined responsibilities.</p>
+      <div class="phil-grid">
+        <div class="phil-card fade-up">
+          <div class="phil-num">①</div>
+          <h3>Compliance & Regulatory</h3>
+          <p>A dedicated compliance function oversees AML, KYC, and sanctions screening on a day-to-day basis, maintaining alignment with FinCEN requirements and applicable international standards. Regulatory reporting obligations are met as required by law.</p>
+        </div>
+        <div class="phil-card fade-up s1">
+          <div class="phil-num">②</div>
+          <h3>Risk Management</h3>
+          <p>Risk models, stress testing, and isolation mechanisms are designed and executed by a dedicated risk function. The Risk Management Committee meets quarterly to review findings, with reports submitted to the Governance Committee and external auditors.</p>
+        </div>
+        <div class="phil-card fade-up s2">
+          <div class="phil-num">③</div>
+          <h3>User Representation</h3>
+          <p>Independent user representatives participate in governance processes to ensure investor interests are fully considered. This structure is designed to prevent conflicts of interest and maintain accountability to the users the platform serves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGIC VISION -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-label fade-up">Looking Ahead</div>
+      <h2 class="fade-up">Where Anmrex Is Headed</h2>
+      <p class="section-sub fade-up">Three areas of focused, long-term investment — each building on the institutional foundation already in place.</p>
+      <div class="vision-cols">
+        <div class="vision-item fade-up">
+          <div class="vision-icon">⚙️</div>
+          <h4>Technology Advancement</h4>
+          <p>Continuous iteration of the security architecture and intelligent risk control systems. The goal is a defense network that is verifiable, traceable, and built to resist threats that don't yet exist — powered by AI-driven predictive modeling and on-chain behavior monitoring.</p>
+        </div>
+        <div class="vision-item fade-up s1">
+          <div class="vision-icon">📋</div>
+          <h4>Compliance Enhancement</h4>
+          <p>Ongoing optimization of cross-jurisdictional compliance compatibility, ensuring KYC, AML, sanctions screening, and data governance always meet or exceed international standards. The Governance Committee will continue to evolve its oversight mandate as the regulatory landscape develops.</p>
+        </div>
+        <div class="vision-item fade-up s2">
+          <div class="vision-icon">🌍</div>
+          <h4>Global Ecosystem Expansion</h4>
+          <p>Building strategic collaboration networks with global blockchain infrastructure and security audit institutions. Expanding institutional-grade interfaces, cross-chain asset support, and liquidity mechanisms to serve the full range of market participants — without compromising the compliance standards that define Anmrex.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="cta-box fade-up">
+      <div class="section-label" style="margin-bottom:14px;">Explore Further</div>
+      <h2>Learn More or Start Trading</h2>
+      <p>Explore Anmrex's full security and compliance documentation, or visit the exchange directly.</p>
+      <a href="https://www.anmrex.com" class="btn-primary">Visit Anmrex Exchange ↗</a>
+      <a href="https://anmrex.github.io/review" class="btn-secondary">Read the Full Review →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="https://anmrex.github.io/" class="footer-logo">Anmrex</a>
+        <div class="footer-links">
+          <a href="https://anmrex.github.io/">Home</a>
+          <a href="https://anmrex.github.io/review">Review</a>
+          <a href="https://anmrex.github.io/security">Security</a>
+          <a href="https://anmrex.github.io/compliance">Compliance</a>
+          <a href="https://anmrex.github.io/faq">FAQ</a>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.facebook.com/Anmrex.Official" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/anmrex" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@Anmrex-Official" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://x.com/Anmrex_" target="_blank" rel="noopener">X</a>
+        </div>
+        <p class="footer-copy">© 2026 Anmrex Exchange. For trading, visit <a href="https://www.anmrex.com" style="color:var(--muted);">www.anmrex.com</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

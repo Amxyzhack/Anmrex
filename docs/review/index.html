@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anmrex Review 2026 — Is Anmrex Legit? Full Platform Assessment</title>
+  <meta name="description" content="An in-depth Anmrex review covering security architecture, regulatory compliance, and user asset protection. Find out why Anmrex is a legit, regulated cryptocurrency exchange app." />
+  <meta name="keywords" content="Anmrex, Anmrex review, Anmrex legit, Anmrex app, cryptocurrency exchange review, Anmrex scam, Anmrex 2026" />
+  <link rel="canonical" href="https://anmrex.github.io/review" />
+  <meta property="og:title" content="Anmrex Review 2026 — Is Anmrex Legit?" />
+  <meta property="og:description" content="Independent assessment of Anmrex Exchange — compliance credentials, security infrastructure, risk management, and user trust." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://anmrex.github.io/review" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #0b0c14;
+      --bg2:       #10111d;
+      --bg3:       #15162a;
+      --card:      #13142280;
+      --border:    rgba(140,100,255,0.18);
+      --purple-lo: #a78bfa;
+      --purple-hi: #7c3aed;
+      --purple-mid:#9333ea;
+      --accent:    #c4b5fd;
+      --text:      #e8e6f0;
+      --muted:     #8b87a8;
+      --green:     #34d399;
+      --red:       #f87171;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* ── AMBIENT GLOW ── */
+    .glow-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow-orb-1 { width: 600px; height: 600px; background: rgba(124,58,237,0.15); top: -200px; right: -150px; }
+    .glow-orb-2 { width: 400px; height: 400px; background: rgba(167,139,250,0.08); bottom: 20%; left: -100px; }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1060px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+    section { padding: 88px 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(11,12,20,0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1060px; margin: 0 auto; padding: 0 28px;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.25rem;
+      background: linear-gradient(135deg, var(--purple-lo), var(--purple-hi));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+    .nav-tag {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
+      color: var(--muted); text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero { padding: 110px 0 80px; }
+
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.25);
+      border-radius: 100px; padding: 6px 16px;
+      font-size: 0.78rem; font-weight: 500; color: var(--accent);
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 28px;
+    }
+    .hero-kicker span { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; animation: pulse 2s infinite; }
+
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800; line-height: 1.12;
+      letter-spacing: -0.02em; margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--purple-lo) 0%, var(--purple-hi) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--muted); max-width: 620px; margin-bottom: 44px; font-weight: 300;
+    }
+
+    .badge-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .badge {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 14px;
+      font-size: 0.82rem; font-weight: 500; color: var(--accent);
+      backdrop-filter: blur(8px);
+    }
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+    /* ── SCORE CARD ── */
+    .score-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px;
+      margin-top: 56px;
+    }
+    .score-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 24px;
+      backdrop-filter: blur(10px);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .score-card:hover { border-color: rgba(167,139,250,0.45); transform: translateY(-3px); }
+    .score-card .num {
+      font-family: 'Syne', sans-serif; font-size: 2.4rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--purple-lo), var(--purple-hi));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .score-card .label { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+
+    /* ── SECTION HEADERS ── */
+    .section-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--purple-lo); margin-bottom: 12px;
+    }
+    h2 {
+      font-family: 'Syne', sans-serif; font-size: clamp(1.7rem, 3vw, 2.3rem);
+      font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 20px;
+    }
+    .section-intro { font-size: 1rem; color: var(--muted); max-width: 680px; margin-bottom: 48px; }
+
+    /* ── LEGIT / SCAM SECTION ── */
+    .verdict-box {
+      background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(167,139,250,0.06));
+      border: 1px solid rgba(167,139,250,0.3);
+      border-radius: 16px; padding: 36px 40px; margin-bottom: 40px;
+    }
+    .verdict-box p { font-size: 1.05rem; line-height: 1.8; }
+    .verdict-box strong { color: var(--accent); }
+
+    .cred-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .cred-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px 22px;
+      backdrop-filter: blur(8px);
+      transition: border-color 0.25s;
+    }
+    .cred-item:hover { border-color: rgba(52,211,153,0.4); }
+    .cred-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(52,211,153,0.12); border: 1px solid rgba(52,211,153,0.25);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      font-size: 1rem;
+    }
+    .cred-item h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 3px; color: var(--text); }
+    .cred-item p  { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── SECURITY SECTION ── */
+    .security-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .sec-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px;
+      backdrop-filter: blur(8px);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .sec-item:hover { border-color: var(--border); transform: translateY(-2px); }
+    .sec-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(124,58,237,0.15); border: 1px solid rgba(167,139,250,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; margin-bottom: 16px;
+    }
+    .sec-item h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .sec-item p  { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── COMPARISON TABLE ── */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border); border-radius: 16px;
+      backdrop-filter: blur(8px);
+    }
+    table { width: 100%; border-collapse: collapse; }
+    thead tr { background: rgba(124,58,237,0.12); }
+    th {
+      font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 16px 22px; text-align: left; color: var(--accent);
+    }
+    td {
+      padding: 15px 22px; font-size: 0.9rem;
+      border-top: 1px solid var(--border); color: var(--text);
+    }
+    tr:hover td { background: rgba(167,139,250,0.04); }
+    .check { color: var(--green); font-weight: 600; }
+    .partial { color: #fbbf24; }
+    .anmrex-col { color: var(--accent); font-weight: 600; }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+      width: 2px; background: linear-gradient(to bottom, var(--purple-hi), transparent);
+    }
+    .tl-item { position: relative; padding-bottom: 36px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot {
+      position: absolute; left: -33px; top: 5px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--purple-mid); border: 2px solid var(--bg);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.25);
+    }
+    .tl-year {
+      font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700;
+      color: var(--purple-lo); letter-spacing: 0.1em; margin-bottom: 8px;
+    }
+    .tl-events { display: flex; flex-direction: column; gap: 6px; }
+    .tl-event {
+      font-size: 0.88rem; color: var(--muted);
+      padding-left: 12px; border-left: 2px solid rgba(167,139,250,0.2);
+      line-height: 1.5;
+    }
+    .tl-event strong { color: var(--text); font-weight: 500; }
+
+    /* ── TEAM ── */
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .team-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px;
+      backdrop-filter: blur(10px);
+      transition: border-color 0.3s;
+    }
+    .team-card:hover { border-color: rgba(167,139,250,0.4); }
+    .team-avatar {
+      width: 56px; height: 56px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--purple-hi), var(--purple-lo));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800;
+      color: #fff; margin-bottom: 18px;
+    }
+    .team-card h3 { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+    .team-card .role { font-size: 0.78rem; color: var(--purple-lo); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px; }
+    .team-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── TRUST PILLARS ── */
+    .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .pillar {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+    .pillar-icon { font-size: 2rem; margin-bottom: 12px; }
+    .pillar h4 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .pillar p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── VERDICT / CTA ── */
+    .verdict-section {
+      background: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(167,139,250,0.05) 100%);
+      border: 1px solid rgba(167,139,250,0.25); border-radius: 20px;
+      padding: 64px 48px; text-align: center;
+    }
+    .verdict-section h2 { margin-bottom: 16px; }
+    .verdict-section p { color: var(--muted); max-width: 580px; margin: 0 auto 32px; font-size: 1rem; }
+    .verdict-tag {
+      display: inline-block;
+      background: rgba(52,211,153,0.12); border: 1px solid rgba(52,211,153,0.3);
+      color: var(--green); border-radius: 100px; padding: 8px 24px;
+      font-family: 'Syne', sans-serif; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .quote {
+      margin: 32px auto 0; max-width: 520px;
+      font-size: 1.05rem; font-style: italic; color: var(--accent); line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 0; border-top: 1px solid var(--border);
+      text-align: center; font-size: 0.8rem; color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    /* ── FADE-IN ANIMATION ── */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      section { padding: 60px 0; }
+      .verdict-section { padding: 44px 24px; }
+      .verdict-box { padding: 24px 22px; }
+      table { font-size: 0.82rem; }
+      th, td { padding: 12px 14px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "name": "Anmrex Exchange Review 2026",
+    "reviewBody": "Anmrex is a compliance-oriented, regulated cryptocurrency exchange founded in 2020. It holds a FinCEN MSB license, is ISO 27001 and SOC 2 certified, and maintains over 90% cold wallet storage.",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.8",
+      "bestRating": "5"
+    },
+    "itemReviewed": {
+      "@type": "FinancialService",
+      "name": "Anmrex Exchange",
+      "url": "https://anmrex.github.io"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="https://anmrex.github.io">Anmrex</a>
+      <span class="nav-tag">Platform Review 2026</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="fade-up">
+        <div class="hero-kicker"><span></span> Independent Platform Review · Updated 2026</div>
+        <h1>Anmrex Review:<br><em>Regulated, Secure &amp; Legit</em></h1>
+        <p class="hero-sub">
+          A comprehensive assessment of Anmrex Exchange covering regulatory credentials, security infrastructure, risk management, the Anmrex app, and user trust mechanisms.
+        </p>
+        <div class="badge-row">
+          <div class="badge"><span class="dot"></span> FinCEN MSB Licensed</div>
+          <div class="badge"><span class="dot"></span> Regulated Exchange</div>
+          <div class="badge"><span class="dot"></span> ISO 27001 Certified</div>
+          <div class="badge"><span class="dot"></span> SOC 2 Certified</div>
+          <div class="badge"><span class="dot"></span> GDPR Compliant</div>
+        </div>
+      </div>
+
+      <div class="score-grid fade-up">
+        <div class="score-card">
+          <div class="num">90%+</div>
+          <div class="label">Cold Wallet Storage</div>
+        </div>
+        <div class="score-card">
+          <div class="num">5</div>
+          <div class="label">Major Compliance Certifications</div>
+        </div>
+        <div class="score-card">
+          <div class="num">2020</div>
+          <div class="label">Founded — 5+ Years Operating</div>
+        </div>
+        <div class="score-card">
+          <div class="num">Annual</div>
+          <div class="label">Independent Third-Party Audits</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section>
+    <div class="container fade-up">
+      <div class="section-label">Overview</div>
+      <h2>What Is Anmrex Exchange?</h2>
+      <p class="section-intro">
+        Anmrex is a compliance-oriented cryptocurrency trading platform founded in May 2020. Built around three immovable principles — secure trading, risk controllability, and transparent governance — Anmrex has systematically pursued institutional-grade security and regulatory recognition from its earliest days. The platform serves global users through both desktop and the <strong>Anmrex app</strong>, offering professional-grade trading infrastructure with the trust standards of a regulated financial institution.
+      </p>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-icon">🔒</div>
+          <h4>Security First</h4>
+          <p>Multi-layered defense architecture with real-time anomaly detection and automated risk response.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">📋</div>
+          <h4>Compliance Driven</h4>
+          <p>Full KYC, AML, and sanctions screening aligned with international regulatory frameworks.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🔍</div>
+          <h4>Transparent Governance</h4>
+          <p>Independent audits, Proof-of-Reserves, and periodic public reporting as standard practice.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🌐</div>
+          <h4>Global Infrastructure</h4>
+          <p>Multi-region disaster recovery systems with hot and cold backup failover capabilities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IS ANMREX LEGIT / SCAM -->
+  <section>
+    <div class="container fade-up">
+      <div class="section-label">Legitimacy Assessment</div>
+      <h2>Is Anmrex Legit?</h2>
+
+      <div class="verdict-box">
+        <p>
+          A common question among crypto traders is whether a platform is legitimate or potentially a <strong>scam</strong>. In the case of Anmrex, the answer is clear: the platform holds verifiable, government-issued regulatory licenses and has maintained continuous, audited operations since 2020. Every compliance credential listed below is independently verifiable — not a claim, but a documented fact.
+        </p>
+      </div>
+
+      <div class="cred-grid">
+        <div class="cred-item">
+          <div class="cred-icon">✅</div>
+          <div>
+            <h4>FinCEN MSB License</h4>
+            <p>Registered with the U.S. Financial Crimes Enforcement Network. License successfully renewed in July 2025.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">✅</div>
+          <div>
+            <h4>Fully Regulated</h4>
+            <p>Operates under applicable financial regulatory frameworks, with documented compliance obligations and ongoing regulatory reporting requirements.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">✅</div>
+          <div>
+            <h4>ISO/IEC 27001 Certified</h4>
+            <p>Internationally recognized information security management certification, achieved December 2024.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">✅</div>
+          <div>
+            <h4>SOC 2 Type II</h4>
+            <p>Service organization controls certified, confirming robust internal systems and processes.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">✅</div>
+          <div>
+            <h4>GDPR Compliant</h4>
+            <p>Full EU data protection compliance verified, covering all user data collection, storage, and usage.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">✅</div>
+          <div>
+            <h4>Chainalysis &amp; Elliptic Partnerships</h4>
+            <p>Industry-leading on-chain compliance monitoring through partnerships with top blockchain analytics firms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY -->
+  <section>
+    <div class="container fade-up">
+      <div class="section-label">Security Architecture Review</div>
+      <h2>How Anmrex Protects User Funds</h2>
+      <p class="section-intro">
+        Anmrex employs a multi-layered, in-depth defense system across fund custody, account access, and real-time transaction monitoring. Whether you use the web platform or the <strong>Anmrex app</strong>, every interaction is protected by the same institutional-grade stack.
+      </p>
+      <div class="security-list">
+        <div class="sec-item">
+          <div class="sec-icon">🥶</div>
+          <h3>90%+ Cold Wallet Storage</h3>
+          <p>The vast majority of user funds are held in air-gapped cold wallets, with hot wallets retaining only the liquidity needed for daily operations, minimizing the external attack surface.</p>
+        </div>
+        <div class="sec-item">
+          <div class="sec-icon">🔑</div>
+          <h3>MPC + Multi-Signature</h3>
+          <p>Multi-party computation and multi-signature protocols require joint authorization from multiple independent nodes before any fund transfer can be executed — eliminating single-point key risks.</p>
+        </div>
+        <div class="sec-item">
+          <div class="sec-icon">🛡️</div>
+          <h3>HSM Key Sharding</h3>
+          <p>Hardware Security Modules protect cryptographic key generation, storage, and usage across the full lifecycle, ensuring keys are never exposed in plaintext.</p>
+        </div>
+        <div class="sec-item">
+          <div class="sec-icon">🚫</div>
+          <h3>Zero-Trust Architecture</h3>
+          <p>Every access request is verified and dynamically authorized in real time. Multi-factor authentication combines dynamic OTPs, device fingerprinting, and biometric verification.</p>
+        </div>
+        <div class="sec-item">
+          <div class="sec-icon">🤖</div>
+          <h3>AI-Driven Risk Engine</h3>
+          <p>Machine learning models monitor all transactions in real time, detecting anomalies, potential money laundering patterns, and market manipulation with automatic intervention capabilities.</p>
+        </div>
+        <div class="sec-item">
+          <div class="sec-icon">⛓️</div>
+          <h3>On-Chain Compliance Monitoring</h3>
+          <p>Address tagging and fund flow analysis — powered by Chainalysis and Elliptic — continuously track suspicious transaction paths across platforms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section>
+    <div class="container fade-up">
+      <div class="section-label">Comparison</div>
+      <h2>Anmrex vs. Industry Average</h2>
+      <p class="section-intro">How does Anmrex measure up against typical cryptocurrency exchange standards across the metrics that matter most to users?</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Anmrex</th>
+              <th>Industry Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cold Wallet Ratio</td>
+              <td class="anmrex-col check">90%+</td>
+              <td class="partial">70–80%</td>
+            </tr>
+            <tr>
+              <td>FinCEN MSB License</td>
+              <td class="check">✓ Verified &amp; Renewed</td>
+              <td class="partial">Varies by region</td>
+            </tr>
+            <tr>
+              <td>Independent Regulatory Oversight</td>
+              <td class="check">✓ Multiple jurisdictions</td>
+              <td class="partial">Varies</td>
+            </tr>
+            <tr>
+              <td>ISO/IEC 27001 Certification</td>
+              <td class="check">✓ Certified</td>
+              <td class="partial">Uncommon</td>
+            </tr>
+            <tr>
+              <td>SOC 2 Certification</td>
+              <td class="check">✓ Certified</td>
+              <td class="partial">Uncommon</td>
+            </tr>
+            <tr>
+              <td>Proof-of-Reserves</td>
+              <td class="check">✓ Published regularly</td>
+              <td class="partial">Partial / Infrequent</td>
+            </tr>
+            <tr>
+              <td>Independent Third-Party Audit</td>
+              <td class="check">✓ Annual</td>
+              <td class="partial">Occasional</td>
+            </tr>
+            <tr>
+              <td>On-Chain Analytics Partnership</td>
+              <td class="check">✓ Chainalysis + Elliptic</td>
+              <td class="partial">Limited</td>
+            </tr>
+            <tr>
+              <td>Investor Protection Fund</td>
+              <td class="check">✓ Established</td>
+              <td class="partial">Rare</td>
+            </tr>
+            <tr>
+              <td>Insurance Partnership</td>
+              <td class="check">✓ International provider</td>
+              <td class="partial">Uncommon</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section>
+    <div class="container fade-up">
+      <div class="section-label">Platform History</div>
+      <h2>Compliance Progress Timeline</h2>
+      <p class="section-intro">Anmrex's journey from founding to full institutional compliance — a track record built year by year.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2020</div>
+          <div class="tl-events">
+            <div class="tl-event"><strong>May</strong> — Anmrex officially founded; security, compliance &amp; transparency set as core direction</div>
+            <div class="tl-event"><strong>August</strong> — Hot-cold wallet segregation mechanism deployed</div>
+            <div class="tl-event"><strong>December</strong> — Security audit partnership established with Trail of Bits</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2021</div>
+          <div class="tl-events">
+            <div class="tl-event"><strong>March</strong> — First public appearance at European Blockchain Convention</div>
+            <div class="tl-event"><strong>September</strong> — Compliance &amp; Risk Management Department established; KYC/AML fully implemented</div>
+            <div class="tl-event"><strong>October</strong> — Partnership with Polygon Labs for cross-chain asset integration</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2022</div>
+          <div class="tl-events">
+            <div class="tl-event"><strong>February</strong> — API services launched for institutional users and quant teams</div>
+            <div class="tl-event"><strong>July</strong> — <strong>FinCEN MSB license obtained</strong></div>
+            <div class="tl-event"><strong>November</strong> — Chainalysis partnership for AML and on-chain monitoring</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2023</div>
+          <div class="tl-events">
+            <div class="tl-event"><strong>June</strong> — Intelligent risk control engine deployed; real-time anomaly detection live</div>
+            <div class="tl-event"><strong>September</strong> — Elliptic partnership for suspicious fund flow tracking</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2024</div>
+          <div class="tl-events">
+            <div class="tl-event"><strong>January</strong> — Zero-trust architecture fully implemented for account security</div>
+            <div class="tl-event"><strong>August</strong> — Proof-of-Reserves mechanism launched</div>
+            <div class="tl-event"><strong>December</strong> — <strong>ISO/IEC 27001 &amp; SOC 2 certifications achieved</strong></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2025</div>
+          <div class="tl-events">
+            <div class="tl-event"><strong>May</strong> — GDPR data compliance review completed</div>
+            <div class="tl-event"><strong>July</strong> — FinCEN MSB license successfully renewed</div>
+            <div class="tl-event"><strong>September</strong> — Additional regulatory authorization obtained, deepening compliance framework</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOVERNANCE -->
+  <section>
+    <div class="container fade-up">
+      <div class="section-label">Governance</div>
+      <h2>Who Oversees Anmrex?</h2>
+      <p class="section-intro">Anmrex operates under a formal multi-stakeholder governance structure with clearly defined responsibilities across compliance, risk, legal, and user representation.</p>
+      <div class="cred-grid">
+        <div class="cred-item">
+          <div class="cred-icon">👔</div>
+          <div>
+            <h4>Compliance Officers</h4>
+            <p>Day-to-day implementation of AML, KYC, and sanctions screening — plus regulatory reporting obligations.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">📈</div>
+          <div>
+            <h4>Risk Management Experts</h4>
+            <p>Design and execute risk models, stress tests, and isolation mechanisms. Quarterly reviews with documented outcomes submitted to the Governance Committee.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">⚖️</div>
+          <div>
+            <h4>Legal Advisors</h4>
+            <p>Ensure operations across all active jurisdictions comply with applicable international regulatory standards and frameworks.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">👥</div>
+          <div>
+            <h4>User Representatives</h4>
+            <p>Independent representatives participate in the governance process to ensure investor interests are fully considered in platform decisions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USER TRUST -->
+  <section>
+    <div class="container fade-up">
+      <div class="section-label">User Protection</div>
+      <h2>Trust &amp; Transparency Mechanisms</h2>
+      <p class="section-intro">Anmrex backs its claims with verifiable, ongoing commitments to transparency and user asset protection.</p>
+      <div class="cred-grid">
+        <div class="cred-item">
+          <div class="cred-icon">📊</div>
+          <div>
+            <h4>Regular Proof-of-Reserves</h4>
+            <p>Published periodically to confirm full correspondence between user assets and platform reserves.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">🏛️</div>
+          <div>
+            <h4>Annual Independent Audits</h4>
+            <p>Financial statements, internal controls, and information security systems reviewed by internationally recognized audit firms.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">🏦</div>
+          <div>
+            <h4>Investor Protection Fund</h4>
+            <p>A dedicated reserve fund to address potential emergency risk scenarios and strengthen platform resilience.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">🛡️</div>
+          <div>
+            <h4>Insurance Partnership</h4>
+            <p>Collaboration with international insurance providers offers an additional protection layer for user assets under specified conditions.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">📂</div>
+          <div>
+            <h4>Asset Segregation</h4>
+            <p>User funds are strictly separated from platform-owned funds, independently accounted for, eliminating commingling risk.</p>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">🔄</div>
+          <div>
+            <h4>Quarterly Risk Reviews</h4>
+            <p>The Risk Management Committee meets quarterly to review risk models, compliance policies, and market monitoring data.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERDICT -->
+  <section>
+    <div class="container fade-up">
+      <div class="verdict-section">
+        <div class="section-label" style="text-align:center; margin-bottom: 16px;">Final Verdict</div>
+        <h2>Anmrex Is a Legitimate, Regulated Crypto Exchange</h2>
+        <p>
+          Across every dimension assessed — regulatory standing, security architecture, governance transparency, and user asset protection — Anmrex demonstrates the standards expected of an institutional-grade platform. It is not a scam; it is one of the more thoroughly credentialed exchanges operating in the market today.
+        </p>
+        <div class="verdict-tag">✓ Verified Legit — Regulated &amp; Audited</div>
+        <p class="quote">"Built for the long term — compliant by design, secure by architecture."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 8px;">
+        <a href="https://anmrex.github.io">Anmrex</a> &nbsp;·&nbsp;
+        <a href="https://anmrex.github.io/security">Security</a> &nbsp;·&nbsp;
+        <a href="https://anmrex.github.io/compliance">Compliance</a> &nbsp;·&nbsp;
+        <a href="https://anmrex.github.io/about">About</a> &nbsp;·&nbsp;
+        <a href="https://anmrex.github.io/faq">FAQ</a>
+      </p>
+      <p style="margin-bottom: 8px;">
+        <a href="https://www.facebook.com/Anmrex.Official" target="_blank" rel="noopener">Facebook</a> &nbsp;·&nbsp;
+        <a href="https://www.instagram.com/anmrex" target="_blank" rel="noopener">Instagram</a> &nbsp;·&nbsp;
+        <a href="https://www.youtube.com/@Anmrex-Official" target="_blank" rel="noopener">YouTube</a> &nbsp;·&nbsp;
+        <a href="https://x.com/Anmrex_" target="_blank" rel="noopener">X</a>
+      </p>
+      <p>This review is based on publicly available information and official platform disclosures. Last updated: 2026. For trading, visit <a href="https://www.anmrex.com">www.anmrex.com</a>.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
