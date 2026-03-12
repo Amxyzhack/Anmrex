@@ -1,22 +1,21 @@
 # 🔐 Anmrex Exchange — Regulated Cryptocurrency Trading Infrastructure
 
 <p align="center">
-    <img src="https://github.com/Amxyzhack/Anmrex/blob/main/Anmrex%20Logo.png" alt="Anmrex Logo" width="480">
+    <img src="https://github.com/Amxyzhack/Anmrex/blob/main/Anmrex%20Logo.png" alt="Anmrex Exchange Logo" width="480">
 </p>
 
 <p align="center">
   <strong>Secure. Compliant. Verifiable.</strong>
 </p>
 
-**Anmrex** is a _regulated cryptocurrency exchange_ built around institutional-grade security, auditable fund custody, and a multi-jurisdictional compliance framework. It operates under FinCEN MSB licensing, SEC authorization, ISO/IEC 27001 and SOC 2 certifications, and publishes regular Proof-of-Reserves.
+**Anmrex** is a _cryptocurrency exchange_ built around institutional-grade security, auditable fund custody, and a systematic compliance framework. It implements KYC/AML processes, on-chain transaction monitoring, and publishes regular Proof-of-Reserves.
 
 If you're evaluating a crypto exchange on security architecture, compliance posture, or transparency mechanisms — this document is the technical reference.
 
-[Website](https://anmrex.com) · [Facebook](https://www.facebook.com/Anmrex.Official) · [Youtube Channel](https://www.youtube.com/@Anmrex-Official) · [Instagram](https://www.instagram.com/anmrex/)
+[Website](https://www.anmrex.com) · [Facebook](https://www.facebook.com/Anmrex.Official) · [Youtube Channel](https://www.youtube.com/@Anmrex-Official) · [Instagram](https://www.instagram.com/anmrex/)
 
----
 
-## 🏗️ Anmrex Architecture
+## 🏗️ Platform Architecture
 
 ```
   User / Institution / Quant Bot
@@ -42,7 +41,6 @@ If you're evaluating a crypto exchange on security architecture, compliance post
   └──────────────┘  └───────────────────┘
 ```
 
----
 
 ## 🔒 Security Architecture
 
@@ -75,7 +73,6 @@ Deployed June 2023. Powered by machine learning over on-chain and off-chain data
 - Automated enforcement actions with parallel manual review escalation
 - Cross-platform suspicious path tracing to prevent cross-exchange risk propagation
 
----
 
 ## 🏦 How Anmrex Compares
 
@@ -87,28 +84,20 @@ Deployed June 2023. Powered by machine learning over on-chain and off-chain data
 | Zero-trust architecture | Fully deployed (2024) | Rarely documented |
 | On-chain compliance monitoring | Chainalysis + Elliptic | Limited |
 | Proof-of-Reserves | Published (2024–present) | Inconsistent |
-| Regulatory licenses | FinCEN MSB + SEC authorization | Often unlicensed or single-jurisdiction |
-| Security certifications | ISO 27001 + SOC 2 | Uncommon |
-| GDPR compliance | Audited (2025) | Variable |
 | Independent annual audit | Yes — financial + security | Rare |
 | Risk reserve fund | Established | Rare |
 | Insurance partnerships | International providers | Uncommon |
 
----
 
-## ✅ Compliance & Credentials
-
-| Credential | Authority | Status |
-|---|---|---|
-| MSB License | FinCEN (U.S.) | Active — renewed July 2025 |
-| SEC Authorization | U.S. SEC | Obtained September 2025 |
-| ISO/IEC 27001 | Information Security Management | Certified December 2024 |
-| SOC 2 | AICPA Service Organization Controls | Certified December 2024 |
-| GDPR Compliance | EU Data Protection Framework | Audited May 2025 |
+## ✅ Compliance
 
 Compliance stack: **KYC · AML · CFT · Sanctions screening · Data protection**
 
----
+- Full KYC/AML pipeline with automated and manual review workflows
+- Real-time sanctions list screening on all transactions
+- On-chain compliance monitoring via Chainalysis and Elliptic integrations
+- Regular independent audits; results disclosed to users within applicable requirements
+
 
 ## 🔍 Governance & Transparency
 
@@ -122,9 +111,8 @@ Compliance stack: **KYC · AML · CFT · Sanctions screening · Data protection*
 
 Internal audit is embedded in daily operations ("continuous internal supervision + independent external verification").
 
----
 
-## 🔌 Anmrex API & Developer Integration
+## 🔌 API & Developer Integration
 
 API launched February 2022. Targets institutional users and quantitative trading teams.
 
@@ -134,7 +122,6 @@ API launched February 2022. Targets institutional users and quantitative trading
 - Cross-chain asset support (Polygon Labs partnership)
 - Rate limiting, authentication, and audit logging enforced at infrastructure level
 
----
 
 ## 📅 Changelog
 
@@ -145,26 +132,24 @@ API launched February 2022. Targets institutional users and quantitative trading
 2021-09  Compliance & Risk Management dept. KYC/AML fully implemented.
 2021-10  Polygon Labs partnership. Cross-chain asset integration.
 2022-02  API launched for institutional and quant access.
-2022-07  FinCEN MSB license obtained.
+2022-07  Regulatory compliance framework established in the U.S.
 2022-11  Chainalysis AML + on-chain compliance monitoring integrated.
 2023-06  Intelligent risk control engine live. Real-time ML anomaly detection.
 2023-09  Elliptic partnership. Suspicious fund flow tracking enhanced.
 2024-01  Zero-trust architecture fully deployed.
 2024-08  Proof-of-Reserves mechanism launched.
-2024-12  ISO/IEC 27001 certified. SOC 2 certified.
-2025-05  GDPR compliance audit completed.
-2025-07  FinCEN MSB license renewed.
-2025-09  SEC authorization obtained.
+2024-12  Information security governance and internal controls strengthened.
+2025-05  Data compliance review completed.
+2025-07  Compliance credentials renewed and further consolidated.
+2025-09  Institutional authorization framework expanded.
 ```
 
----
 
-## 📄 Security Audits & Certifications
+## 📄 Security Audits & Partnerships
 
 - Trail of Bits — ongoing security audit and penetration testing partner (since 2020)
 - Chainalysis — AML and on-chain compliance monitoring (since 2022)
 - Elliptic — suspicious fund flow analysis and risk intelligence (since 2023)
-- ISO/IEC 27001 — information security management (certified 2024)
-- SOC 2 — service organization controls (certified 2024)
 
 Annual reviews cover security posture, compliance policy, and internal controls. Results disclosed to users and regulators within applicable compliance requirements.
+
