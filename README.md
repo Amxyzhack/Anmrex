@@ -1,12 +1,8 @@
 # 🔐 Anmrex Exchange — Regulated Cryptocurrency Trading Infrastructure
 
-<p align="center">
-    <img src="https://github.com/Amxyzhack/Anmrex/blob/main/Anmrex%20Logo.png" alt="Anmrex Exchange Logo" width="480">
-</p>
+<p align="center"><img src="https://github.com/Amxyzhack/Anmrex/blob/main/Anmrex%20Logo.png" alt="Anmrex Exchange Logo" width="480"></p>
 
-<p align="center">
-  <strong>Secure. Compliant. Verifiable.</strong>
-</p>
+<p align="center"><strong>Secure. Compliant. Verifiable.</strong></p>
 
 **Anmrex** is a _cryptocurrency exchange_ built around institutional-grade security, auditable fund custody, and a systematic compliance framework. It implements KYC/AML processes, on-chain transaction monitoring, and publishes regular Proof-of-Reserves.
 
@@ -18,7 +14,7 @@ If you're evaluating a crypto exchange on security architecture, compliance post
 ## 🏗️ Platform Architecture
 
 ```
-  User / Institution / Quant Bot
+  User / Institution / Developer
               │
               ▼
 ┌─────────────────────────────────────┐
@@ -114,9 +110,9 @@ Internal audit is embedded in daily operations ("continuous internal supervision
 
 ## 🔌 API & Developer Integration
 
-API launched February 2022. Targets institutional users and quantitative trading teams.
+API launched February 2022. Targets institutional users and developers building on compliant infrastructure.
 
-- High-performance matching engine with low-latency order execution
+- High-performance matching engine with reliable order execution
 - REST and WebSocket endpoints for real-time market data streaming
 - Institutional liquidity management interface
 - Cross-chain asset support (Polygon Labs partnership)
@@ -131,7 +127,7 @@ API launched February 2022. Targets institutional users and quantitative trading
 2020-12  Trail of Bits security audit partnership established.
 2021-09  Compliance & Risk Management dept. KYC/AML fully implemented.
 2021-10  Polygon Labs partnership. Cross-chain asset integration.
-2022-02  API launched for institutional and quant access.
+2022-02  API launched for institutional and developer access.
 2022-07  Regulatory compliance framework established in the U.S.
 2022-11  Chainalysis AML + on-chain compliance monitoring integrated.
 2023-06  Intelligent risk control engine live. Real-time ML anomaly detection.
@@ -152,4 +148,3 @@ API launched February 2022. Targets institutional users and quantitative trading
 - Elliptic — suspicious fund flow analysis and risk intelligence (since 2023)
 
 Annual reviews cover security posture, compliance policy, and internal controls. Results disclosed to users and regulators within applicable compliance requirements.
-
