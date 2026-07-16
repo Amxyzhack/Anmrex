@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://anmrex.my/sitemap.xml
